@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane fx:id="achMain" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Controller.AddModifyCustomerController">
+    <StackPane fx:id="loading" styleClass="loading" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+        <children>
+            <ImageView fx:id="imgLoading" fitHeight="114.0" fitWidth="200.0" styleClass="loading-image" preserveRatio="true">
+                <image><Image url="/Presentation/View/Icons/loading.gif" /></image>
+            </ImageView>
+        </children>
+    </StackPane>    
+    <stylesheets>
+        <URL value="@Styles.css"/>
+    </stylesheets>
+    <GridPane vgap="10">
+        <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+        <ListView fx:id="lvCustomer" prefWidth="120" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Button fx:id="btnAddCustomer" onAction="#handleAddCustomer" prefWidth="120" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        
+    <VBox fx:id="vbMain" GridPane.rowIndex="0" GridPane.columnIndex="1">
+        <Label fx:id="lblTitle" styleClass="title" />
+        <GridPane hgap="5.0" vgap="5.0">
+            <padding><Insets top="15.0" left="15.0" /></padding>
+            <Label fx:id="lblName" 
+                GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <Label fx:id="lblAddress"
+                GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <Label fx:id="lblAddress2"
+                GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <Label fx:id="lblCountry"
+                GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <Label fx:id="lblCity" 
+                GridPane.rowIndex="4" GridPane.columnIndex="0" />
+            <Label fx:id="lblPostalCode"
+                GridPane.rowIndex="5" GridPane.columnIndex="0" />
+            <Label fx:id="lblPhone"
+                GridPane.rowIndex="6" GridPane.columnIndex="0" />
+            <TextField fx:id="txtName" onKeyReleased="#checkCanSave" disable="True"
+                GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtAddress" onKeyReleased="#checkCanSave" disable="True"
+                GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <TextField fx:id="txtAddress2" onKeyReleased="#checkCanSave" disable="True"
+                GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCountry" disable="True"
+                GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCity" disable="True"
+                GridPane.rowIndex="4" GridPane.columnIndex="1" />
+            <HBox spacing="10"
+                GridPane.rowIndex="3" GridPane.columnIndex="1" >
+                <ComboBox fx:id="cboCountry" onAction="#handleCountryChanged" visible="False" />
+                <Button fx:id="btnAddCountry" text="Add" onAction="#handleAddCountry" visible="False" />
+                <Button fx:id="btnEditCountry" text="Edit" onAction="#handleModifyCountry" 
+                    disable="True" visible="False" />
+                <Button fx:id="btnDeleteCountry" styleClass="deleteButton"  onAction="#handleDeleteCountry"
+                    disable="True" visible="False" />
+            </HBox>
+            <HBox spacing="10"
+                GridPane.rowIndex="4" GridPane.columnIndex="1" >
+                <ComboBox fx:id="cboCity" onAction="#handleCityChanged" disable="True" visible="False" />
+                <Button fx:id="btnAddCity" text="Add" onAction="#handleAddCity"
+                    disable="True" visible="False" />
+                <Button fx:id="btnEditCity" text="Edit" onAction="#handleModifyCity"
+                    disable="True" visible="False" />
+                <Button fx:id="btnDeleteCity" styleClass="deleteButton"  onAction="#handleDeleteCity"
+                    disable="True" visible="False" />
+            </HBox>
+            <TextField fx:id="txtPostalCode" onKeyReleased="#checkCanSave" disable="True"
+                GridPane.rowIndex="5" GridPane.columnIndex="1" />
+            <TextField fx:id="txtPhone" onKeyReleased="#checkCanSave" disable="True"
+                GridPane.rowIndex="6" GridPane.columnIndex="1" />
+        </GridPane>
+    </VBox>
+        <GridPane alignment="CENTER_RIGHT" hgap="10" GridPane.rowIndex="1" GridPane.columnIndex="1" >
+            <GridPane.margin><Insets right="15"/></GridPane.margin>
+            <Button fx:id="btnSave" onAction="#handleSaveCustomer" GridPane.columnIndex="1" visible="False" />
+            <Button fx:id="btnModify" onAction="#handleModifyCustomer" GridPane.columnIndex="0" disable="True" />
+            <Button fx:id="btnDelete" onAction="#handleDeleteCustomer" GridPane.columnIndex="1" disable="True" />
+            <Button fx:id="btnCancel" onAction="#handleCancel" GridPane.columnIndex="2"/>
+        </GridPane>
+    </GridPane>
+</AnchorPane>

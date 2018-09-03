@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane fx:id="achMain" id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Controller.LoginController">
+    <StackPane fx:id="loading" styleClass="loading" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+        <children>
+            <ImageView fx:id="imgLoading" fitHeight="114.0" fitWidth="200.0" styleClass="loading-image" preserveRatio="true">
+                <image>
+                    <Image url="/Presentation/View/Icons/loading.gif" />
+                </image>
+            </ImageView>
+        </children>
+    </StackPane>    
+    <stylesheets><URL value="@Styles.css"/></stylesheets>
+    <GridPane fx:id="grdMain" vgap="10" hgap="10">
+        <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+        <Label fx:id="lblLoginTitle" styleClass="title"
+            GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+        
+        <Label fx:id="lblUser"
+            GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <Label fx:id="lblPass"
+            GridPane.rowIndex="2" GridPane.columnIndex="0" />    
+        <TextField fx:id="txtUser" prefWidth="300"
+            GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        <PasswordField fx:id="txtPass" prefWidth="300"
+            GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <HBox spacing="15" GridPane.columnSpan="2" alignment="BOTTOM_RIGHT"  
+            GridPane.rowIndex="3" GridPane.halignment="RIGHT">
+            <Button fx:id="btnLogin" onAction="#handleLogin"/>
+            <Button fx:id="btnCancel" onAction="#handleCancel"/>
+        </HBox>
+    </GridPane>
+      
+</AnchorPane>

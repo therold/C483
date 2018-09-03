@@ -1,0 +1,5 @@
+src/Data/DBInfo.properties
+login.txt
+build/
+dist/
+README.txt

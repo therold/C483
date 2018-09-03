@@ -1,0 +1,103 @@
+.button, .combo-box, .label, .text-field, .radio-button {
+    -fx-min-height: 30;
+}
+
+.text-date {
+    -fx-font: BOLD 12 default;
+    -fx-alignment: CENTER;
+}
+
+.appointment-Consultation {
+    -fx-background-color: #FFC2B2;
+    -fx-padding: 5;
+}
+
+.appointment-Consultation:hover {
+    -fx-background-color: #FFDCD3;
+}
+
+.appointment-Sales {
+    -fx-background-color: #88ACBE;
+    -fx-padding: 5;
+}
+
+.appointment-Sales:hover {
+    -fx-background-color: #D3E4EC;
+}
+
+.appointment-Meeting {
+    -fx-background-color: #C4E79A;
+    -fx-padding: 5;
+}
+
+.appointment-Meeting:hover {
+    -fx-background-color: #E7F6D5;
+}
+
+.appointment-Consultation:selected, .appointment-Sales:selected, .appointment-Meeting:selected {
+    -fx-text-fill: white;
+}
+
+.deleteButton {
+    -fx-background-image: url("./Icons/delete.png");
+    -fx-min-width: 30;    
+}
+
+.combo-box {
+    -fx-min-width: 200;
+}
+
+.combo-box > .list-view {
+    -fx-min-width: 200;
+}
+
+.button {
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;   
+}
+
+.title {
+    -fx-font: BOLD 20 Tahoma;
+    -fx-padding: 0 0 10 10
+}
+
+.name-title {
+    -fx-font: BOLD 20 Tahoma;
+    -fx-padding: 0 0 0 10
+}
+
+.loading {
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center; 
+    -fx-opacity: 0.0;
+    -fx-background-color: rgba(64, 64, 64, 1);
+}
+
+.loading-active {
+    -fx-background-image: url("./Icons/loading.gif");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center; 
+    -fx-opacity: 0.0;
+    -fx-background-color: rgba(64, 64, 64, 1);
+}
+
+
+.calendarTable {
+    -fx-pref-width: 1120;
+}
+
+.list-view {
+  -fx-background-insets: 0;
+  -fx-padding: 0px;
+  -fx-border-insets: 0px;
+  -fx-border-width: 1px;
+  -fx-border-color: lightgray;
+}
+
+.list-view .scroll-bar:horizontal .increment-arrow,
+.list-view .scroll-bar:horizontal .decrement-arrow,
+.list-view .scroll-bar:horizontal .increment-button,
+.list-view .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}

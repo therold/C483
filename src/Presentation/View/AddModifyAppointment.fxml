@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Controller.AddModifyAppointmentController">
+    <StackPane fx:id="loading" styleClass="loading" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+        <children>
+            <ImageView fx:id="imgLoading" fitHeight="114.0" fitWidth="200.0" styleClass="loading-image" preserveRatio="true">
+                <image><Image url="/Presentation/View/Icons/loading.gif" /></image>
+            </ImageView>
+        </children>
+    </StackPane>    
+    <stylesheets><URL value="@Styles.css"/></stylesheets>
+    <VBox spacing="10">
+        <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+        <Label fx:id="lblTitle" styleClass="title" />
+        <GridPane hgap="5.0" vgap="5.0">
+            <Label fx:id="lblUser" GridPane.rowIndex="0" GridPane.columnIndex="0"/> 
+            <Label fx:id="lblCustomer" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="lblName" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="lblLocation" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="lblContact" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="lblType" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <Label fx:id="lblStart" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <Label fx:id="lblEnd" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+            <Label fx:id="lblDescription" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtUser" disable="true" GridPane.rowIndex="0" GridPane.columnIndex="1"/> 
+            <ComboBox fx:id="cboCustomer" onAction="#checkCanSave" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <TextField fx:id="txtName" onKeyReleased="#checkCanSave" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <TextField fx:id="txtLocation" onKeyReleased="#checkCanSave" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <TextField fx:id="txtContact" onKeyReleased="#checkCanSave" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            <ComboBox fx:id="cboType" onAction="#checkCanSave" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+            <HBox spacing="10"  GridPane.rowIndex="6" GridPane.columnIndex="1">
+                <DatePicker fx:id="dpStartDate" onKeyReleased="#checkCanSave" onMouseClicked="#checkCanSave" />
+                <TextField fx:id="txtStartTime" HBox.hgrow="ALWAYS" onKeyReleased="#checkCanSave" />
+            </HBox>
+            <HBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="1" >
+                <DatePicker fx:id="dpEndDate" />
+                <TextField fx:id="txtEndTime" HBox.hgrow="ALWAYS" onKeyReleased="#checkCanSave" />
+            </HBox>
+            <TextArea fx:id="txtDescription" prefRowCount="7"  onKeyReleased="#checkCanSave"
+                GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+        </GridPane>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+                <padding><Insets right="10.0" /></padding>
+                <Button fx:id="btnSave" onAction="#handleSave" />
+                <Button fx:id="btnCancel" onAction="#handleCancel" />
+        </HBox>
+    </VBox>
+</AnchorPane>

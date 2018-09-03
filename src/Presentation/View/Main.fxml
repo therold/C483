@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane fx:id="achMain" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Controller.MainController">
+    <StackPane fx:id="loading" styleClass="loading" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+        <children>
+            <ImageView fx:id="imgLoading" fitHeight="114.0" fitWidth="200.0" styleClass="loading-image" preserveRatio="true">
+                <image><Image url="/Presentation/View/Icons/loading.gif" /></image>
+            </ImageView>
+        </children>
+    </StackPane>    
+    <stylesheets><URL value="@/Presentation/View/Styles.css"/></stylesheets>
+    <GridPane fx:id="grdMain" vgap="10" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"   >
+        <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+        <Label fx:id="lblTitle" styleClass="name-title" GridPane.rowIndex="0" />
+        <HBox spacing="10" alignment="BOTTOM_LEFT"  GridPane.rowIndex="1">
+            <Label fx:id="lblView" />
+            <RadioButton fx:id="rbWeek" selected="true" onSelectedChange="#viewChanged">
+                <toggleGroup><ToggleGroup fx:id="tgView" /></toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rbMonth" toggleGroup="$tgView" />
+        </HBox>
+        <HBox spacing="10" alignment="BOTTOM_CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+            <Button text="&lt;" onAction="#prev" />
+            <TextField fx:id="txtDateOf" disable="true" />
+            <Button text="&gt;" onAction="#next" />
+        </HBox>
+        <HBox spacing="10" alignment="BOTTOM_CENTER" GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.halignment="RIGHT" >
+            <Button fx:id="btnReport" onAction="#reports"/> 
+            <Button fx:id="btnCustomer" onAction="#manageCustomer"/>
+            <AnchorPane style="-fx-border-insets: 8 0 0 0; -fx-background-color: inherit; -fx-border-color: lightgray;">
+                <children>
+                    <Label alignment="TOP_CENTER" layoutX="5.0" style="-fx-padding: 0 5; -fx-background-color: inherit; -fx-text-fill: lightgray;" text="Appointments" />
+                    <HBox spacing="10" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                        <Button fx:id="btnAddAppointment" onAction="#addAppointment" />
+                        <Button fx:id="btnEditAppointment" onAction="#editAppointment" disable="True" />
+                        <Button fx:id="btnDeleteAppointment" onAction="#deleteAppointment" styleClass="deleteButton" disable="True" />
+                    </HBox>
+                </children>
+            </AnchorPane>
+        </HBox>
+
+        <TableView fx:id="tblWeek" styleClass="calendarTable" GridPane.rowIndex="2" GridPane.columnSpan="4" GridPane.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="tbcSunday"></TableColumn>
+                <TableColumn fx:id="tbcMonday"></TableColumn>
+                <TableColumn fx:id="tbcTuesday"></TableColumn>
+                <TableColumn fx:id="tbcWednesday"></TableColumn>
+                <TableColumn fx:id="tbcThursday"></TableColumn>
+                <TableColumn fx:id="tbcFriday"></TableColumn>
+                <TableColumn fx:id="tbcSaturday"></TableColumn>
+           </columns>    
+        </TableView>
+        
+        <GridPane fx:id="grdWeek" GridPane.rowIndex="2" GridPane.columnSpan="4" >
+            <rowConstraints><RowConstraints minHeight="25"/></rowConstraints>
+            <ListView fx:id="lvSunday" onKeyPressed="#cancelKeyPressed"  GridPane.rowIndex="1" />
+            <ListView fx:id="lvMonday" onKeyPressed="#cancelKeyPressed" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.vgrow="ALWAYS" />
+            <ListView fx:id="lvTuesday" onKeyPressed="#cancelKeyPressed" GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.vgrow="ALWAYS" />
+            <ListView fx:id="lvWednesday" onKeyPressed="#cancelKeyPressed" GridPane.rowIndex="1" GridPane.columnIndex="3" GridPane.vgrow="ALWAYS" />
+            <ListView fx:id="lvThursday" onKeyPressed="#cancelKeyPressed" GridPane.rowIndex="1" GridPane.columnIndex="4" GridPane.vgrow="ALWAYS" />
+            <ListView fx:id="lvFriday" onKeyPressed="#cancelKeyPressed" GridPane.rowIndex="1" GridPane.columnIndex="5" GridPane.vgrow="ALWAYS" />
+            <ListView fx:id="lvSaturday" onKeyPressed="#cancelKeyPressed" GridPane.rowIndex="1" GridPane.columnIndex="6" GridPane.vgrow="ALWAYS" />
+        </GridPane>
+        
+        <GridPane fx:id="grdCalendar" visible="false" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" GridPane.rowIndex="2" GridPane.columnSpan="4">
+            <padding><Insets left="1.0" right="1.0"/></padding>
+            <rowConstraints><RowConstraints minHeight="25"/></rowConstraints>
+            <GridPane GridPane.rowIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER"  fx:id="grdMonth" gridLinesVisible="true" GridPane.columnSpan="7" ></GridPane>
+        </GridPane>        
+    </GridPane>
+</AnchorPane>

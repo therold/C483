@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import Model.*?>
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Controller.ReportsController">
+    <stylesheets><URL value="@Styles.css"/></stylesheets>
+        <StackPane fx:id="loading" styleClass="loading" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+        <children>
+            <ImageView fx:id="imgLoading" fitHeight="114.0" fitWidth="200.0" styleClass="loading-image" preserveRatio="true">
+                <image><Image url="/Presentation/View/Icons/loading.gif" /></image>
+            </ImageView>
+        </children>
+    </StackPane>    
+    <GridPane fx:id="grdMain" vgap="10" hgap="10" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"   >
+        <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+        <Label fx:id="lblType" GridPane.rowIndex="1" />
+        <ComboBox fx:id="cboType" onAction="#handleTypeChanged" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        
+        <TreeView fx:id="trSchedule" showRoot="false" visible="false" GridPane.rowIndex="2" GridPane.columnSpan="2" />
+        
+        <TableView fx:id="tblTypesByMonth" GridPane.rowIndex="2" GridPane.columnSpan="2"  items="$controller.appointmentTypesByMonth">
+            <columns>
+                <TableColumn text="Month" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="month"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Consultation" style="-fx-alignment: center;"  prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="consultationCount"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Meeting" style="-fx-alignment: center;" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="meetingCount"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Sales" style="-fx-alignment: center;" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="salesCount"/></cellValueFactory>
+                </TableColumn>
+           </columns>    
+        </TableView>
+        
+        <TableView fx:id="tblCustomers" visible="false" GridPane.rowIndex="2" GridPane.columnSpan="2"  items="$controller.customers">
+            <columns>
+                <TableColumn text="Customer" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Phone" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="phone"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="City" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="city"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Zip" prefWidth="150">
+                    <cellValueFactory><PropertyValueFactory property="postalCode"/></cellValueFactory>
+                </TableColumn>
+           </columns>    
+        </TableView>
+                
+    </GridPane>
+</AnchorPane>
